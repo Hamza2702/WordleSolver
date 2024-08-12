@@ -38,7 +38,7 @@
             this.txtBoxInclude = new System.Windows.Forms.TextBox();
             this.lblExclude = new System.Windows.Forms.Label();
             this.txtBoxExclude = new System.Windows.Forms.TextBox();
-            this.btnCheck = new System.Windows.Forms.Button();
+            this.btnIncludeCheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblWordle
@@ -90,9 +90,8 @@
             this.lblInclude.ForeColor = System.Drawing.Color.White;
             this.lblInclude.Location = new System.Drawing.Point(45, 199);
             this.lblInclude.Name = "lblInclude";
-            this.lblInclude.Size = new System.Drawing.Size(71, 28);
+            this.lblInclude.Size = new System.Drawing.Size(0, 28);
             this.lblInclude.TabIndex = 3;
-            this.lblInclude.Text = "a e i o u";
             // 
             // label1
             // 
@@ -111,6 +110,8 @@
             this.txtBoxInclude.Name = "txtBoxInclude";
             this.txtBoxInclude.Size = new System.Drawing.Size(149, 20);
             this.txtBoxInclude.TabIndex = 5;
+            this.txtBoxInclude.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxInclude_KeyDown);
+            this.txtBoxInclude.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxInclude_KeyUp);
             // 
             // lblExclude
             // 
@@ -129,18 +130,20 @@
             this.txtBoxExclude.Name = "txtBoxExclude";
             this.txtBoxExclude.Size = new System.Drawing.Size(149, 20);
             this.txtBoxExclude.TabIndex = 5;
+            this.txtBoxExclude.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBoxExclude_KeyDown);
+            this.txtBoxExclude.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxExclude_KeyUp);
             // 
-            // btnCheck
+            // btnIncludeCheck
             // 
-            this.btnCheck.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.ForeColor = System.Drawing.Color.Black;
-            this.btnCheck.Location = new System.Drawing.Point(170, 216);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(83, 59);
-            this.btnCheck.TabIndex = 6;
-            this.btnCheck.Text = "Check";
-            this.btnCheck.UseVisualStyleBackColor = true;
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            this.btnIncludeCheck.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncludeCheck.ForeColor = System.Drawing.Color.Black;
+            this.btnIncludeCheck.Location = new System.Drawing.Point(170, 216);
+            this.btnIncludeCheck.Name = "btnIncludeCheck";
+            this.btnIncludeCheck.Size = new System.Drawing.Size(83, 59);
+            this.btnIncludeCheck.TabIndex = 6;
+            this.btnIncludeCheck.Text = "Check";
+            this.btnIncludeCheck.UseVisualStyleBackColor = true;
+            this.btnIncludeCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // Form1
             // 
@@ -148,7 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(503, 434);
-            this.Controls.Add(this.btnCheck);
+            this.Controls.Add(this.btnIncludeCheck);
             this.Controls.Add(this.txtBoxExclude);
             this.Controls.Add(this.txtBoxInclude);
             this.Controls.Add(this.label1);
@@ -180,7 +183,7 @@
         private System.Windows.Forms.TextBox txtBoxInclude;
         private System.Windows.Forms.Label lblExclude;
         private System.Windows.Forms.TextBox txtBoxExclude;
-        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Button btnIncludeCheck;
     }
 }
 
