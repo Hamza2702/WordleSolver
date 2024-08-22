@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +21,7 @@ namespace Wordle
         Stack<String> includedLetters = new Stack<string>();
         Stack<String> excludedLetters = new Stack<string>();
         List<string> words = new List<String>();
+        char[] currentWord = new char[5];
 
         public Form1()
         {
@@ -71,23 +72,29 @@ namespace Wordle
         {
             letter = txtBoxInclude.Text.Trim().ToLower();
 
-            // If not a single character
-            if (letter.Length != 1)
+            // If backspace and includedLetters is empty, don't process
+            if (e.KeyCode == Keys.Back && includedLetters.Count == 0)
+            {
+                return;
+            }
+
+            // If not a single character or '-'
+            if (letter.Length != 1 && letter != "-")
             {
                 txtBoxInclude.Clear();
                 return;
             }
 
             // If 4 letters
-            if (includedLetters.Count == 4)
+            if (includedLetters.Count() == 5) // Count letters excluding '-'
             {
                 txtBoxInclude.Clear();
                 return;
             }
 
-             includedLetters.Push(letter);
-             lblInclude.Text = string.Join("", includedLetters.Reverse()); // Reverse to show correct order
-             txtBoxInclude.Clear();
+            includedLetters.Push(letter);
+            lblInclude.Text = string.Join("", includedLetters.Reverse()); // Reverse to show correct order
+            txtBoxInclude.Clear();
         }
 
         private void txtBoxInclude_KeyDown(object sender, KeyEventArgs e)
@@ -174,6 +181,9 @@ namespace Wordle
             }
         }
 
+        private void txtBoxInclude_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
